@@ -16,43 +16,43 @@ To run this project, you will need to add the following environment variables to
 
 **Server:** Node , MongoDB , Express
 
-## Documentation
+# Documentation
 
-# Api Documentation
+## Api Documentation
 
 for api documentation run the project and navigate to {baseurl}/api-docs 
 
-# Installation & Setup with npm
+## Installation & Setup with npm
 
 ```bash
  npm install
 ```
 
-# Testing
+## Testing
 
 ```bash
  npm run test
 ```
 
-# Run Locally
+## Run Locally
 
 ```bash
  npm run dev
 ```
 
-# Run Production
+## Run Production
 
 ```bash
  npm run start
 ```
 
-# Run Docker
+## Run Docker
 
 ```bash
  docker compose up
 ```
 
-# Installation and Setup with make
+## Installation and Setup with make
 
 this will install all dependencies and run the tests then run project in production mode
 
