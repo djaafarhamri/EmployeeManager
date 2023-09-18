@@ -5,6 +5,7 @@ Mini-project “Biometric Time Clock”
 ## Environment Variables
 
 To run this project, you will need to add the following environment variables to your .env file
+
 `PORT`
 
 `MONGO_URI`
@@ -16,6 +17,10 @@ To run this project, you will need to add the following environment variables to
 **Server:** Node , MongoDB , Express
 
 ## Documentation
+
+# Api Documentation
+
+for api documentation run the project and navigate to {baseurl}/api-docs 
 
 # Installation & Setup with npm
 
