@@ -6,6 +6,8 @@ services:
     container_name: db_container
     image: mongo:latest
     restart: always
+    ports:
+      - 2717:27017
     volumes:
       - mongo_db:/data/db
   
@@ -17,6 +19,7 @@ services:
       - 4000:4000
     environment:
       PORT: 4000
+      volumes: .:/usr/src/app
       MONGO_URL: mongodb://mongo_db:27017
       DB_NAME: employer
     depends_on:
