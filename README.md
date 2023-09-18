@@ -18,9 +18,7 @@ To run this project, you will need to add the following environment variables to
 
 # Documentation
 
-## Api Documentation
-
-for api documentation run the project and navigate to {baseurl}/api-docs 
+### for api documentation run the project and navigate to {baseurl}/api-docs 
 
 ## Installation & Setup with npm
 
