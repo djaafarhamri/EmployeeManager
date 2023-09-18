@@ -32,3 +32,7 @@ app.use(express.static(`${__dirname}/public`));
 app.use("/api/employee", require("./routes/employeeRoutes"));
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+app.use((req, res) => {
+  res.status(404).json({ message: "not found" });
+});
