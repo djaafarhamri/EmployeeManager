@@ -13,7 +13,7 @@ start : ;@echo "Starting ${PROJECT} In production mode.....";
 	node server
 
 dev : ;@echo "Starting ${PROJECT} In developeent mode....."; 
-	node_modules/.bin/nodemon server
+	nodemon server
 
 install: ;@echo "Installing ${PROJECT}....."; 
 	npm install
