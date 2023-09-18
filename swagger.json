@@ -1,0 +1,241 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Employees Attendance Management System",
+        "description": "Employees Attendance Management System API Documentation",
+        "license": {
+            "name": "MIT"
+        }
+    },
+    "host": "localhost:4000",
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "Employees",
+            "description": "Employees APIs"
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "api/mployee/addEmployee": {
+            "post": {
+                "tags": [
+                    "Employees"
+                ],
+                "summary": "Add new employee",
+                "description": "Add new employee",
+                "parameters": [
+                    {
+                        "name": "firstName",
+                        "in": "body",
+                        "description": "firstName",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "lastName",
+                        "in": "body",
+                        "description": "lastName",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "departement",
+                        "in": "body",
+                        "description": "departement",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "dateCreated",
+                        "in": "body",
+                        "description": "dateCreated",
+                        "required": false,
+                        "type": "date"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ServiceResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "api/employee/getAll": {
+            "get": {
+                "tags": [
+                    "Employees"
+                ],
+                "summary": "Get all employees",
+                "description": "Get all employees",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ServiceResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "api/employee/getBasedOnCreationDate": {
+            "get": {
+                "tags": [
+                    "Employees"
+                ],
+                "summary": "Get all employees based on creation date",
+                "description": "Get all employees based on creation date",
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "description": "date",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ServiceResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "api/employee/check-in": {
+            "put": {
+                "tags": [
+                    "Employees"
+                ],
+                "summary": "Check in Employee",
+                "description": "Check in Employee",
+                "parameters": [
+                    {
+                        "name": "employeeId",
+                        "in": "query",
+                        "description": "employeeId",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ServiceResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "api/employee/check-out": {
+            "put": {
+                "tags": [
+                    "Employees"
+                ],
+                "summary": "Check out Employee",
+                "description": "Check out Employee",
+                "parameters": [
+                    {
+                        "name": "employeeId",
+                        "in": "query",
+                        "description": "employeeId",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "comment",
+                        "in": "body",
+                        "description": "comment",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ServiceResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Employee": {
+            "type": "object",
+            "required": [
+                "_id",
+                "firstName",
+                "lastName",
+                "departement"
+            ],
+            "properties": {
+                "_id": {
+                    "type": "String",
+                    "uniqueItems": true
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "departement": {
+                    "type": "string"
+                },
+                "dateCreated": {
+                    "type": "date"
+                },
+                "attendance": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "checkIn": {
+                                "type": "date"
+                            },
+                            "checkOut": {
+                                "type": "date"
+                            },
+                            "time": {
+                                "type": "number"
+                            },
+                            "comment": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "ServiceResponse": {
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Employee"
+                    }
+                }
+            }
+        }
+    }
+}
