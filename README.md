@@ -47,7 +47,7 @@ To run this project, you will need to add the following environment variables to
 ## Run Docker
 
 ```bash
- docker compose up
+ docker compose up -d
 ```
 
 ## Installation and Setup with make
